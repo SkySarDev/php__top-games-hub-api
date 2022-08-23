@@ -1,7 +1,5 @@
 <?php
 
-require_once 'utils/api.php';
-
 function getHomeData(): array {
   $default_page_size = 'page=1&page_size=6';
   $today = date('Y-m-d');
