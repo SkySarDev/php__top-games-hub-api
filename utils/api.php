@@ -21,10 +21,11 @@ function fetchData(string $url): mixed {
 
   if (curl_errno($ch)) {
     $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    http_response_code($status_code);
 
-    echo curl_error($ch);
-    return null;
+    return [
+      'error' => $status_code,
+      'message' => curl_error($ch)
+    ];
   } else {
     return json_decode($response, true);
   }
