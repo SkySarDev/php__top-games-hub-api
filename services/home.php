@@ -11,14 +11,18 @@ function getHomeData(): array {
   $popular_genres_query = 'ordering=-games_count&' . $default_page_size;
   $top_games_query = 'dates=' .$start_year . ',' . $end_year . '&ordering=-metacritic&' . $default_page_size;
 
-  $urls = array(
+  $urls = [
     'newReleases' => getUrl('games', $new_releases_query),
     'popularGenres' => getUrl('genres', $popular_genres_query),
     'topGames' => getUrl('games', $top_games_query),
     'tags' => getUrl('tags', $default_page_size)
-  );
+  ];
 
-  $data =  fetchMultiData($urls);
+  $data = fetchMultiData($urls);
+
+  if(isset($data['error'])) {
+    return $data;
+  }
 
   $result = [];
   $result['newReleases'] = $data['newReleases']['results'];
