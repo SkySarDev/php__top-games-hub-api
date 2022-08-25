@@ -1,4 +1,6 @@
 .idea
 .htaccess
 
+vendor
+
 temp-db
