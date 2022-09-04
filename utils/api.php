@@ -4,7 +4,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Promise;
 use GuzzleHttp\Exception\BadResponseException;
 
-function getUrl(string $category, string $query): string {
+function getUrl(string $category, string $query = ''): string {
   $api_url = getenv('API_URL');
   $api_key = getenv('API_KEY');
 

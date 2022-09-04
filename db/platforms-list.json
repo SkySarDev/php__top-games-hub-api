@@ -1,0 +1,58 @@
+{
+  "1": {
+    "name": "PC",
+    "description": "PC games, or personal computer games, started with the video game crash of 1983. PC games became popular after the development of the microprocessor and microcomputer. Some of the first PC games were Bertie the Brain, OXO and Spacewar! As the 3D graphics accelerators became faster and CPU power improved, PC games became more realistic and more accessible to produce. The PC market sales rocketed in the 80s when IBM computers and sound cards were generated. The platform involves different peripherals, gaming hardware, and software. These are mouse and keyboard; gamepads and motion controllers aren't obligatory, but still popularly accepted. Better hardware improves the game's accuracy; it usually lets the players use more NPCs than equivalents on other platforms. With the platform, the players can perform every sort of game. For example, shooters are easy to play due to the mouse controllers. However, the main reason for the PC games popularity is their lower prices and the backward compatibility with older titles, which leaves much to be desired on consoles."
+  },
+  "2": {
+    "name": "PlayStation",
+    "description": "PlayStation is a video game brand that consists of five home video game consoles, two handhelds, a media center, and a smartphone, as well as an online service and multiple magazines. The brand is produced by Sony Interactive Entertainment, a division of Sony; the first PlayStation console was released in Japan in December 1994, and worldwide the following year."
+  },
+  "3": {
+    "name": "Xbox",
+    "description": "Xbox is a video gaming brand created and owned by Microsoft. The brand consists of five video game consoles, as well as applications (games), streaming services, an online service by the name of Xbox network, and the development arm by the name of Xbox Game Studios. The brand was first introduced in the United States in November 2001, with the launch of the original Xbox console."
+  },
+  "4": {
+    "name": "iOS",
+    "description": "iOS is an operating system initially developed by Apple and named iPhone OS by the title of the only phone developed by a corporation. While it was intended for mobile phones and media players at first, it has grown to tablets and TV-console. The OS is considered the second most famous system after Android. iOS is widely known for its closed source code and high data encryption making it nearly impossible to boot the system on the device other than Apple's. The system features a lot of apps unique to the Apple users including Siri — a voice assistant which can access apps as well as Game Center — a various apps manager allowing gamers to share their achievements while playing with friends. App Store is considered to be the most profound mobile application platform with strict selection and moderating policies. The most popular iOS hack is called Jailbreak and allows the user to overclock the CPU and access the hidden homebrew apps within the system."
+  },
+  "5": {
+    "name": "Apple Macintosh",
+    "description": "The Macintosh (or Mac) is a family of personal computers designed, manufactured, and sold by Apple Inc. since 1984.\nThe original Macintosh was the first successful mass-market all-in-one desktop personal computer with a graphical user interface, built-in screen, and mouse. Apple sold it alongside its popular Apple II series until the others were discontinued in the 1990s."
+  },
+  "6": {
+    "name": "Linux",
+    "description": "Linux is a free and open-source software operating system. The main component of distribution is the Linux kernel, an operating system released in 1991. Linux is the successor of Unix implemented in 1969. It was initially developed for personal computers based on the Intel x86 architecture. Linux is the leading operating system on servers and Android OS smartphones due to its free and open-source software. This is the only platform like that, but Linux is considered to be the successful one. Indie, shooters and action games, both one- and multiplayer, are particularly prevalent among Linux users. These are, for example, Team Fortress, Minecraft, and Counter-Strike. Along with kernels, Linux uses networking, access to the peripherals, and file systems. As for desktops, the default mode is usually a graphical user interface. There are also Linux User Groups who hold meetings and provide free demonstrations, training, and technical support."
+  },
+  "7": {
+    "name": "Nintendo",
+    "description": "The Japanese multinational consumer electronics company Nintendo has developed seven home video game consoles and multiple portable consoles for use with external media, as well as dedicated consoles and other hardware for their consoles. As of September 30, 2021, in addition to Nintendo Switch, Nintendo has sold over 863.07 million hardware units."
+  },
+  "8": {
+    "name": "Android",
+    "description": "Android is a mobile operating system based on Linux kernel. The OS uses open-source code so that any developer can modify it. There is a considerable amount of Android devices from various mobile companies. Android application marketplace — Play Market is the most substantial accumulation of mobile games for one platform with iOS being the second largest one. Partly, such title comes from a little moderation required for an app to be published in the store, so there naturally are many scam apps and viruses there not to mention that any Android app can be pirated relatively easy. The separate bunch of Android devices is gaming consoles on the OS. It is the usual mobile phones but with higher performance values and built-in gamepads for more convenient use. The Google Play Games service was introduced featuring achievements, comparing scores between friends and listing various game tops."
+  },
+  "9": {
+    "name": "Atari",
+    "description": "Atari is a brand name that has been owned by several entities since its inception in 1972. It is currently owned by French publisher Atari SA through a subsidiary named Atari Interactive. The original Atari, Inc., founded in Sunnyvale, California, in 1972 by Nolan Bushnell and Ted Dabney, was a pioneer in arcade games, home video game consoles and home computers. The company's products, such as Pong and the Atari 2600, helped define the electronic entertainment industry from the 1970s to the mid-1980s."
+  },
+  "10": {
+    "name": "Commodore / Amiga",
+    "description": "Amiga is a single-user multitasking operating system. It is also a family of personal computers introduced by Commodore in 1985. The original model was part of a wave of 16 and 32-bit computers. Amiga included peripherals like a chipset, keyboard, mouse, serial ports and networking. The platform became especially attractive for gaming and programming demos. It was famous for desktop video production. Amiga lets the players simultaneously play back multiple digital sound samples. It has a relatively strong processor and access to several megabytes of memory; at the time it was first released, it led to the development of several 3D rendering packages. However, in the 2000s the sales collapsed as the new Amigas had very slow and stale graphics and mechanics. Now it has fast and sophisticated sound and graphics but also contributes to system instability."
+  },
+  "11": {
+    "name": "SEGA",
+    "description": "Sega Corporation is a Japanese multinational video game and entertainment company headquartered in Shinagawa, Tokyo. Its international branches, Sega of America and Sega Europe, are headquartered in Irvine, California, and London. Its division for the development of both arcade games and home video games, Sega Games, has existed in its current state since 2020; from 2015 to that point, the two had made up separate entities known as Sega Games and Sega Interactive Co., Ltd. Sega is a subsidiary of Sega Group Corporation, a part of Sega Sammy Holdings. From 1983 until 2001, Sega also developed video game consoles."
+  },
+  "12": {
+    "name": "3DO",
+    "description": "3DO Interactive Multiplayer is a home video game console by The 3DO Company. Panasonic produced the first models in 1993; further on, renditions of the hardware were released by LG. Despite a highly promoted launch, the 3DO's high price didn't let it achieve success comparable to Sega or Nintendo. As a result, it was discontinued in 1996. 3DO included the first light synthesizer in a game console; it converted CD music to a color pattern. 3DOs didn't have any regional lockout or copy protection, making it simple to pirate. However, there are exceptions like some Japanese games which couldn't be played on non-Japanese 3DO consoles. The necessary accessories included a standard controller and power cables. The most famous were the board games like Sword and Sorcery, an epic-fantasy; Twinkle Knights, a full-motion video; and Alone in the Dark, a horror."
+  },
+  "13": {
+    "name": "Neo Geo",
+    "description": "NEOGEO is a cartridge-based arcade system board. It's a fourth-generation home video game console by Japanese company SNK Corporation, released in 1990. Initially, it launched a coin-operated arcade machine. It could put up to six different cartridges into a single cabinet; they are called Multi Video System. This is what makes the system unique, as at the time no other platform could use that much cartridges. A home console is called Advanced Entertainment System; it was first launched as a rental console for video game stores in Japan. However, its high price did not let the company release it for home use, so it was removed. When released, NeoGeo was the most powerful console at the time. It had massive success during the 1990s due to its low cost, six ROM slots and small size. Still, sales were meager in the U.S. as the hardware and software had high prices. Fatal Fury, Art of Fighting, and Samurai Shodown are famous arcades for NeoGeo."
+  },
+  "14": {
+    "name": "Web",
+    "description": "Web games are played with the use of a web browser and can run either by HTML or by plug-ins. Browser games can be played on different devices, browsers and operating systems, which makes them one of the most portable platforms. These are usually free-to-start: the players have full content right from the start, but may not continue without a payment. However, these games are favored as there's no need to make additional downloads or buy extra software to perform - however, this can be done to improve the game. They were first developed in 1996 when ActionScript language was released. The most famous and long-living multiplayer is Minecraft, initially available on Mojang's website; in the 2010s it was removed. Another notable game is a one-player arcade Pac-Man. Recent problems include some browser games; for example, the popularity of Flash lessened as not every iPhone supports it."
+  }
+}
