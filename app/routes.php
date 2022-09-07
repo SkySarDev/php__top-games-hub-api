@@ -8,6 +8,8 @@ $router->get('/games', 'Controller@games');
 $router->get('/games/{id}', 'Controller@gameById');;
 $router->get('/platforms', 'Controller@platforms');
 $router->get('/platforms/{id}', 'Controller@platformById');
+$router->get('/genres', 'Controller@genres');
+$router->get('/genres/{id}', 'Controller@genreById');
 $router->set404('Controller@error');
 
 $router->run();

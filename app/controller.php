@@ -38,6 +38,20 @@ class Controller {
     sendResponse($result);
   }
 
+  public function genres(): void {
+    require_once 'services/genres.php';
+
+    $result = getGenres();
+    sendResponse($result);
+  }
+
+  public function genreById(string $id): void {
+    require_once 'services/genres.php';
+
+    $result = getGenreById($id);
+    sendResponse($result);
+  }
+
   public function error(): void {
     http_response_code(400);
 
