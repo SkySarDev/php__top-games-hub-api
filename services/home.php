@@ -1,5 +1,7 @@
 <?php
 
+require_once 'utils/services-utils.php';
+
 function getHomeData(): array {
   $default_page_size = 'page=1&page_size=6';
   $today = date('Y-m-d');
@@ -25,10 +27,10 @@ function getHomeData(): array {
   }
 
   $result = [];
-  $result['newReleases'] = $data['newReleases']['results'];
-  $result['popularGenres'] = $data['popularGenres']['results'];
-  $result['topGames'] = $data['topGames']['results'];
-  $result['tags'] = $data['tags']['results'];
+  $result['topGames'] = getExtractedGamesList($data['topGames']['results']);
+  $result['newReleases'] = getExtractedGamesList($data['newReleases']['results']);
+  $result['popularGenres'] = getExtractedCommonsList($data['popularGenres']['results']);
+  $result['tags'] = getExtractedCommonsList($data['tags']['results']);
 
   return $result;
 }

@@ -37,3 +37,19 @@ function getExtractedGamesList(array $games_list): array {
 
   return $result;
 }
+
+function getExtractedCommonsList(array $list): array {
+  $result = [];
+
+  foreach ($list as $item) {
+    extract($item);
+    $result[] = compact(
+      'id',
+      'name',
+      'games_count',
+      'image_background',
+    );
+  }
+
+  return $result;
+}
