@@ -29,7 +29,7 @@ function getGenreById(string $id): array {
   }
 
   extract($data['genre_info']);
-  extract($data['games_list']);
+  $games_list = getExtractedGamesList($data['games_list']['results']);
 
   return [
     'name' => $name,
@@ -37,6 +37,6 @@ function getGenreById(string $id): array {
     'description' => $description,
     'description_raw' => getRawString($description),
     'games_count' => $games_count,
-    'games_list' => $results,
+    'games_list' => $games_list,
   ];
 }

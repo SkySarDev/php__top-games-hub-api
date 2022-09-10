@@ -63,8 +63,8 @@ function getPlatformById(string $id): array
   }
 
   $games_count = $response['count'];
-  $games_list = $response['results'];
-  $background_image = $response['results'][0]['background_image'];
+  $games_list = getExtractedGamesList($response['results']);
+  $background_image = $games_list[0]['background_image'];
 
   return [
     'name' => $platform['name'],

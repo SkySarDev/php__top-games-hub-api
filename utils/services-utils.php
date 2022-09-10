@@ -14,8 +14,26 @@ function getRawString(string $str): string {
 }
 
 function getBackgroundImage(string $file_name): string {
-  $protocol = $_SERVER['REQUEST_SCHEME'].'://';
+  $protocol = $_SERVER['REQUEST_SCHEME'];
   $host = $_SERVER['HTTP_HOST'];
 
-  return $protocol.$host.'/static/images/backgrounds/'.$file_name;
+  return $protocol . '://' . $host . '/static/images/backgrounds/' . $file_name;
+}
+
+function getExtractedGamesList(array $games_list): array {
+  $result = [];
+
+  foreach ($games_list as $game) {
+    extract($game);
+    $result[] = compact(
+      'slug',
+      'name',
+      'released',
+      'background_image',
+      'metacritic',
+      'genres'
+    );
+  }
+
+  return $result;
 }
