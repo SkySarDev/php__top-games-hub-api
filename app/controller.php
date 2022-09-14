@@ -52,6 +52,20 @@ class Controller {
     sendResponse($result);
   }
 
+  public function tags(): void {
+    require_once 'services/tags.php';
+
+    $result = getTags();
+    sendResponse($result);
+  }
+
+  public function tagById(string $id): void {
+    require_once 'services/tags.php';
+
+    $result = getTagById($id);
+    sendResponse($result);
+  }
+
   public function error(): void {
     http_response_code(400);
 

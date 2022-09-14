@@ -10,6 +10,8 @@ $router->get('/platforms', 'Controller@platforms');
 $router->get('/platforms/{id}', 'Controller@platformById');
 $router->get('/genres', 'Controller@genres');
 $router->get('/genres/{id}', 'Controller@genreById');
+$router->get('/tags', 'Controller@tags');
+$router->get('/tags/{id}', 'Controller@tagById');
 $router->set404('Controller@error');
 
 $router->run();
