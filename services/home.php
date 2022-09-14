@@ -26,11 +26,12 @@ function getHomeData(): array {
     return $data;
   }
 
-  $result = [];
-  $result['topGames'] = getExtractedGamesList($data['topGames']['results']);
-  $result['newReleases'] = getExtractedGamesList($data['newReleases']['results']);
-  $result['popularGenres'] = getExtractedCommonsList($data['popularGenres']['results']);
-  $result['tags'] = getExtractedCommonsList($data['tags']['results']);
-
-  return $result;
+  return [
+    'title' => 'Home page',
+    'description' => 'Top Games Hub is a video game database with over 700,000 games!',
+    'top_games' => getExtractedGamesList($data['topGames']['results']),
+    'new_releases' => getExtractedGamesList($data['newReleases']['results']),
+    'popular_genres' => getExtractedCommonsList($data['popularGenres']['results']),
+    'tags' => getExtractedCommonsList($data['tags']['results'])
+  ];
 }

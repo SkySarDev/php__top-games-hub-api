@@ -38,8 +38,10 @@ function getPlatforms(): array
   });
 
   return [
+    'title' => 'Game platforms',
+    'description' => 'Top Games Hub. List of video game platforms.',
     'background_image' => getBackgroundImage('all-platforms.jpg'),
-    'platforms' => $platforms_list
+    'list' => $platforms_list
   ];
 }
 
@@ -67,10 +69,11 @@ function getPlatformById(string $id): array
   $background_image = $games_list[0]['background_image'];
 
   return [
-    'name' => $platform['name'],
+    'title' => 'Games for ' . $platform['name'],
     'description' => $platform['description'],
-    'games_count' => $games_count,
+    'description_raw' => $platform['description'],
     'background_image' => $background_image,
+    'games_count' => $games_count,
     'games_list' => $games_list
   ];
 }
