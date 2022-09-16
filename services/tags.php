@@ -26,7 +26,7 @@ function getTags(): array {
   return [
     'title' => 'Game tags',
     'description' => 'Top Games Hub. List of video game tags.',
-    'background_image' => getBackgroundImage('all-tags.jpg'),
+    'background_image' => getBackgroundImage('tags.jpg'),
     'list' => $tags_list
   ];
 }

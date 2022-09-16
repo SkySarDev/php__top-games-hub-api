@@ -40,7 +40,7 @@ function getPlatforms(): array
   return [
     'title' => 'Game platforms',
     'description' => 'Top Games Hub. List of video game platforms.',
-    'background_image' => getBackgroundImage('all-platforms.jpg'),
+    'background_image' => getBackgroundImage('platforms.jpg'),
     'list' => $platforms_list
   ];
 }

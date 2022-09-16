@@ -9,7 +9,7 @@ function getAllGames(): array {
   return [
     'title' => 'Games',
     'description' => 'Top Games Hub. List of video games.',
-    'background_image' => getBackgroundImage('all-games.jpg'),
+    'background_image' => getBackgroundImage('games.jpg'),
     'games_count' => $response['count'],
     'games_list' => getExtractedGamesList($response['results'])
   ];

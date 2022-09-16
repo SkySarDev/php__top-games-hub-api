@@ -13,7 +13,7 @@ function getGenres(): array {
   return [
     'title' => 'Game genres',
     'description' => 'Top Games Hub. List of video game genres.',
-    'background_image' => getBackgroundImage('all-genres.jpg'),
+    'background_image' => getBackgroundImage('genres.jpg'),
     'list' => $response['results']
   ];
 }
