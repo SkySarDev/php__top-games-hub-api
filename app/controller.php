@@ -80,6 +80,20 @@ class Controller {
     sendResponse($result);
   }
 
+  public function publishers(): void {
+    require_once 'services/publishers.php';
+
+    $result = getPublishers();
+    sendResponse($result);
+  }
+
+  public function publisherById(string $id): void {
+    require_once 'services/publishers.php';
+
+    $result = getPublisherById($id);
+    sendResponse($result);
+  }
+
   public function error(): void {
     http_response_code(400);
 

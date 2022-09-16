@@ -14,6 +14,8 @@ $router->get('/tags', 'Controller@tags');
 $router->get('/tags/{id}', 'Controller@tagById');
 $router->get('/developers', 'Controller@developers');
 $router->get('/developers/{id}', 'Controller@developerById');
+$router->get('/publishers', 'Controller@publishers');
+$router->get('/publishers/{id}', 'Controller@publisherById');
 $router->set404('Controller@error');
 
 $router->run();
