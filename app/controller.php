@@ -66,6 +66,20 @@ class Controller {
     sendResponse($result);
   }
 
+  public function developers(): void {
+    require_once 'services/developers.php';
+
+    $result = getDevelopers();
+    sendResponse($result);
+  }
+
+  public function developerById(string $id): void {
+    require_once 'services/developers.php';
+
+    $result = getDeveloperById($id);
+    sendResponse($result);
+  }
+
   public function error(): void {
     http_response_code(400);
 
