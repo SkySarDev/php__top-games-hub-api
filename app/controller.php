@@ -94,6 +94,13 @@ class Controller {
     sendResponse($result);
   }
 
+  public function search(string $text): void {
+    require_once 'services/search.php';
+
+    $result = getSearch($text);
+    sendResponse($result);
+  }
+
   public function error(): void {
     http_response_code(400);
 

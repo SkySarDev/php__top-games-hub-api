@@ -16,6 +16,7 @@ $router->get('/developers', 'Controller@developers');
 $router->get('/developers/{id}', 'Controller@developerById');
 $router->get('/publishers', 'Controller@publishers');
 $router->get('/publishers/{id}', 'Controller@publisherById');
+$router->get('/search/{text}', 'Controller@search');
 $router->set404('Controller@error');
 
 $router->run();
