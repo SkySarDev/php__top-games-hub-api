@@ -6,6 +6,10 @@ function getGamePlatform(array $platform): array {
   return compact('id', 'slug', 'name');
 }
 
+function getFormattedDesc(string $description): string {
+  return preg_replace(["/<(\/?)pre>/", "/<(\/?)code>/"], "",  $description);
+}
+
 function getRawString(string $str): string {
   $str = strip_tags($str);
   $str = str_replace(PHP_EOL, ' ', $str);

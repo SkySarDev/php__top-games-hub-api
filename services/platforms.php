@@ -1,9 +1,6 @@
 <?php
 
-require_once 'utils/services-utils.php';
-
-function getPlatforms(): array
-{
+function getPlatforms(): array {
   $url = getUrl('platforms/lists/parents');
   $response = fetchData($url);
 
@@ -45,8 +42,7 @@ function getPlatforms(): array
   ];
 }
 
-function getPlatformById(string $id): array
-{
+function getPlatformById(string $id): array {
   $platforms_list = json_decode(file_get_contents('db/platforms-list.json'), true);
   $platform = $platforms_list[$id];
 
@@ -57,7 +53,7 @@ function getPlatformById(string $id): array
     ];
   }
 
-  $url = getUrl('games', 'page=1&page_size=15&parent_platforms=' . $id);
+  $url = getUrl('games', BASE_PAGE_SIZE.'&parent_platforms='.$id);
   $response = fetchData($url);
 
   if (isset($response['error'])) {
@@ -69,7 +65,7 @@ function getPlatformById(string $id): array
   $background_image = $games_list[0]['background_image'];
 
   return [
-    'title' => 'Games for ' . $platform['name'],
+    'title' => 'Games for '.$platform['name'],
     'description' => $platform['description'],
     'description_raw' => $platform['description'],
     'background_image' => $background_image,

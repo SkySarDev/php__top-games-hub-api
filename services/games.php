@@ -1,9 +1,7 @@
 <?php
 
-require_once 'utils/services-utils.php';
-
 function getAllGames(): array {
-  $url = getUrl('games', 'page=1&page_size=15');
+  $url = getUrl('games', BASE_PAGE_SIZE);
   $response = fetchData($url);
 
   return [
@@ -17,8 +15,8 @@ function getAllGames(): array {
 
 function getGameById(string $id): array {
   $urls = [
-    'game_info' => getUrl('games/'.$id, ''),
-    'screenshots' => getUrl('games/'.$id.'/screenshots', '')
+    'game_info' => getUrl('games/'.$id),
+    'screenshots' => getUrl('games/'.$id.'/screenshots')
   ];
 
   $data = fetchMultiData($urls);
@@ -33,6 +31,7 @@ function getGameById(string $id): array {
   extract($game_data);
 
   $platforms = array_map('getGamePlatform', $parent_platforms);
+  $description = getFormattedDesc($description);
   $description_raw = isset($description_raw) ? getRawString($description_raw) : getRawString($description);
 
   return compact(

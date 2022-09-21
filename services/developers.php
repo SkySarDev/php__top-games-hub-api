@@ -1,9 +1,7 @@
 <?php
 
-require_once 'utils/services-utils.php';
-
 function getDevelopers(): array {
-  $url = getUrl('developers', 'page=1&page_size=15');
+  $url = getUrl('developers', BASE_PAGE_SIZE);
   $response = fetchData($url);
 
   if (isset($response['error'])) {
@@ -33,8 +31,8 @@ function getDevelopers(): array {
 
 function getDeveloperById(string $id): array {
   $urls = [
-    'developer_info' => getUrl('developers/' . $id),
-    'games_list' => getUrl('games', 'page=1&page_size=15&developers=' . $id)
+    'developer_info' => getUrl('developers/'.$id),
+    'games_list' => getUrl('games', BASE_PAGE_SIZE.'&developers='.$id)
   ];
 
   $data = fetchMultiData($urls);
@@ -47,7 +45,7 @@ function getDeveloperById(string $id): array {
   $games_list = getExtractedGamesList($data['games_list']['results']);
 
   return [
-    'title' => 'Developed by ' . $name,
+    'title' => 'Developed by '.$name,
     'description' => $description,
     'description_raw' => getRawString($description),
     'background_image' => $image_background,

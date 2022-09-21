@@ -1,9 +1,7 @@
 <?php
 
-require_once 'utils/services-utils.php';
-
 function getTags(): array {
-  $url = getUrl('tags', 'page=1&page_size=15');
+  $url = getUrl('tags', BASE_PAGE_SIZE);
   $response = fetchData($url);
 
   if (isset($response['error'])) {
@@ -14,6 +12,8 @@ function getTags(): array {
 
   foreach ($response['results'] as $tag) {
     extract($tag);
+    $name = ucfirst($name);
+
     $tags_list[] = compact(
       'id',
       'name',
@@ -33,8 +33,8 @@ function getTags(): array {
 
 function getTagById(string $id): array {
   $urls = [
-    'tag_info' => getUrl('tags/' . $id),
-    'games_list' => getUrl('games', 'page=1&page_size=15&tags=' . $id)
+    'tag_info' => getUrl('tags/'.$id),
+    'games_list' => getUrl('games', BASE_PAGE_SIZE.'&tags='.$id)
   ];
 
   $data = fetchMultiData($urls);
@@ -47,7 +47,7 @@ function getTagById(string $id): array {
   $games_list = getExtractedGamesList($data['games_list']['results']);
 
   return [
-    'title' => $name . ' games',
+    'title' => ucfirst($name).' games',
     'description' => $description,
     'description_raw' => getRawString($description),
     'background_image' => $image_background,

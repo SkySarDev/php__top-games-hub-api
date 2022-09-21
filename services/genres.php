@@ -1,7 +1,5 @@
 <?php
 
-require_once 'utils/services-utils.php';
-
 function getGenres(): array {
   $url = getUrl('genres', 'ordering=-games_count');
   $response = fetchData($url);
@@ -20,8 +18,8 @@ function getGenres(): array {
 
 function getGenreById(string $id): array {
   $urls = [
-    'genre_info' => getUrl('genres/' . $id),
-    'games_list' => getUrl('games', 'page=1&page_size=15&genres=' . $id)
+    'genre_info' => getUrl('genres/'.$id),
+    'games_list' => getUrl('games', BASE_PAGE_SIZE.'&genres='.$id)
   ];
 
   $data = fetchMultiData($urls);
@@ -34,7 +32,7 @@ function getGenreById(string $id): array {
   $games_list = getExtractedGamesList($data['games_list']['results']);
 
   return [
-    'title' => $name . ' games',
+    'title' => $name.' games',
     'description' => $description,
     'description_raw' => getRawString($description),
     'background_image' => $image_background,

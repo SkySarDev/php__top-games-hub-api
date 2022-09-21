@@ -1,9 +1,7 @@
 <?php
 
-require_once 'utils/services-utils.php';
-
 function getPublishers(): array {
-  $url = getUrl('publishers', 'page=1&page_size=15');
+  $url = getUrl('publishers', BASE_PAGE_SIZE);
   $response = fetchData($url);
 
   if (isset($response['error'])) {
@@ -33,8 +31,8 @@ function getPublishers(): array {
 
 function getPublisherById(string $id): array {
   $urls = [
-    'publisher_info' => getUrl('publishers/' . $id),
-    'games_list' => getUrl('games', 'page=1&page_size=15&publishers=' . $id)
+    'publisher_info' => getUrl('publishers/'.$id),
+    'games_list' => getUrl('games', BASE_PAGE_SIZE.'&publishers='.$id)
   ];
 
   $data = fetchMultiData($urls);
@@ -47,7 +45,7 @@ function getPublisherById(string $id): array {
   $games_list = getExtractedGamesList($data['games_list']['results']);
 
   return [
-    'title' => 'Published by ' . $name,
+    'title' => 'Published by '.$name,
     'description' => $description,
     'description_raw' => getRawString($description),
     'background_image' => $image_background,
