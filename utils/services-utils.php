@@ -12,7 +12,7 @@ function getFormattedDesc(string $description): string {
 
 function getRawString(string $str): string {
   $str = strip_tags($str);
-  $str = str_replace(PHP_EOL, ' ', $str);
+  $str = preg_replace(['/\s+/', '/\/n/'], ' ', $str);
 
   return htmlspecialchars_decode($str);
 }
