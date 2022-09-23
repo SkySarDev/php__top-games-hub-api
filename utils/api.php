@@ -11,10 +11,7 @@ function getUrl(string $category, string $query = ''): string {
   return $api_url . $category . '?key=' . $api_key . '&' . $query;
 }
 
-function responseError(BadResponseException $ex): array {
-  $status = $ex->getCode();
-  $message = $ex->getResponse()->getBody()->getContents();
-
+function responseError(int $status, string $message): array {
   http_response_code($status);
 
   return [
@@ -31,7 +28,10 @@ function fetchData(string $url): array {
 
     return json_decode($response->getBody(), true);
   } catch (BadResponseException $ex) {
-    return responseError($ex);
+    $status = $ex->getCode();
+    $message = $ex->getResponse()->getBody()->getContents();
+
+    return responseError($status, $message);
   }
 }
 
@@ -50,6 +50,9 @@ function fetchMultiData(array $urls): array {
       return json_decode($response->getBody(), true);
     }, $responses);
   } catch (BadResponseException $ex) {
-    return responseError($ex);
+    $status = $ex->getCode();
+    $message = $ex->getResponse()->getBody()->getContents();
+
+    return responseError($status, $message);
   }
 }

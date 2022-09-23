@@ -1,6 +1,6 @@
 <?php
 
-function getHomeData(): array {
+function getHome(): array {
   $page_size = 'page=1&page_size=6';
   $today = date('Y-m-d');
   $next_month = date('Y-m-d', strtotime('+1 month'));
