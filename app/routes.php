@@ -17,6 +17,8 @@ $router->get('/developers/{id}', 'Controller@developerById');
 $router->get('/publishers', 'Controller@publishers');
 $router->get('/publishers/{id}', 'Controller@publisherById');
 $router->get('/search/{text}', 'Controller@search');
+$router->get('/release-calendar', 'Controller@releaseCalendar');
+$router->get('/release-calendar/{date}', 'Controller@releaseCalendarByDate');
 $router->set404('Controller@error');
 
 $router->run();

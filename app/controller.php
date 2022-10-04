@@ -6,7 +6,7 @@ class Controller {
   public function home(): void {
     require_once 'services/home.php';
 
-    $result = getHomeData();
+    $result = getHome();
     sendResponse($result);
   }
 
@@ -98,6 +98,20 @@ class Controller {
     require_once 'services/search.php';
 
     $result = getSearch($text);
+    sendResponse($result);
+  }
+
+  public function releaseCalendar(): void {
+    require_once 'services/release-calendar.php';
+
+    $result = getReleases();
+    sendResponse($result);
+  }
+
+  public function releaseCalendarByDate(string $date): void {
+    require_once 'services/release-calendar.php';
+
+    $result = getReleasesByDate($date);
     sendResponse($result);
   }
 
