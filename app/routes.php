@@ -19,6 +19,7 @@ $router->get('/publishers/{id}', 'Controller@publisherById');
 $router->get('/search/{text}', 'Controller@search');
 $router->get('/release-calendar', 'Controller@releaseCalendar');
 $router->get('/release-calendar/{date}', 'Controller@releaseCalendarByDate');
+$router->post('/next-page', 'Controller@nextPage');
 $router->set404('Controller@error');
 
 $router->run();

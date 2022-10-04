@@ -27,16 +27,19 @@ function getBackgroundImage(string $file_name): string {
 function getExtractedGamesList(array $games_list): array {
   $result = [];
 
-  foreach ($games_list as $game) {
-    extract($game);
-    $result[] = compact(
-      'slug',
-      'name',
-      'released',
-      'background_image',
-      'metacritic',
-      'genres'
-    );
+  if (count($games_list)) {
+    foreach ($games_list as $game) {
+      extract($game);
+      $result[] = compact(
+        'slug',
+        'name',
+        'released',
+        'background_image',
+        'metacritic',
+        'genres'
+      );
+    }
+
   }
 
   return $result;
@@ -56,4 +59,15 @@ function getExtractedCommonsList(array $list): array {
   }
 
   return $result;
+}
+
+function getNextPageString(?string $next_page): ?string {
+  if (!isset($next_page)) {
+    return null;
+  }
+
+  $api_url = getenv('API_URL');
+  $api_key = 'key='.getenv('API_KEY');
+
+  return str_replace([$api_url, $api_key], '', $next_page);
 }

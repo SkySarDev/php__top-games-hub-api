@@ -115,6 +115,15 @@ class Controller {
     sendResponse($result);
   }
 
+  public function nextPage(): void {
+    require_once 'services/common.php';
+
+    $post = json_decode(file_get_contents('php://input'), true);
+    $query = $post['query'];
+    $result = getNextPage($query);
+    sendResponse($result);
+  }
+
   public function error(): void {
     http_response_code(400);
 
