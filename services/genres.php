@@ -12,7 +12,8 @@ function getGenres(): array {
     'title' => 'Game genres',
     'description' => 'Top Games Hub. List of video game genres.',
     'background_image' => getBackgroundImage('genres.jpg'),
-    'list' => $response['results']
+    'list' => $response['results'],
+    'next_page' => getNextPageString($response['next'])
   ];
 }
 
@@ -38,5 +39,6 @@ function getGenreById(string $id): array {
     'background_image' => $image_background,
     'games_count' => $games_count,
     'games_list' => $games_list,
+    'next_page' => getNextPageString($data['games_list']['next'])
   ];
 }

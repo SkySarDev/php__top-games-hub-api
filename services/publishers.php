@@ -25,7 +25,8 @@ function getPublishers(): array {
     'title' => 'Game publishers',
     'description' => 'Top Games Hub. List of video game publishers.',
     'background_image' => getBackgroundImage('developers.jpg'),
-    'list' => $publishers_list
+    'list' => $publishers_list,
+    'next_page' => getNextPageString($response['next'])
   ];
 }
 
@@ -51,5 +52,6 @@ function getPublisherById(string $id): array {
     'background_image' => $image_background,
     'games_count' => $games_count,
     'games_list' => $games_list,
+    'next_page' => getNextPageString($data['games_list']['next'])
   ];
 }

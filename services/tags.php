@@ -27,7 +27,8 @@ function getTags(): array {
     'title' => 'Game tags',
     'description' => 'Top Games Hub. List of video game tags.',
     'background_image' => getBackgroundImage('tags.jpg'),
-    'list' => $tags_list
+    'list' => $tags_list,
+    'next_page' => getNextPageString($response['next'])
   ];
 }
 
@@ -53,5 +54,6 @@ function getTagById(string $id): array {
     'background_image' => $image_background,
     'games_count' => $games_count,
     'games_list' => $games_list,
+    'next_page' => getNextPageString($data['games_list']['next'])
   ];
 }

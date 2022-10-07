@@ -38,7 +38,8 @@ function getPlatforms(): array {
     'title' => 'Game platforms',
     'description' => 'Top Games Hub. List of video game platforms.',
     'background_image' => getBackgroundImage('platforms.jpg'),
-    'list' => $platforms_list
+    'list' => $platforms_list,
+    'next_page' => getNextPageString($response['next'])
   ];
 }
 
@@ -70,6 +71,7 @@ function getPlatformById(string $id): array {
     'description_raw' => $platform['description'],
     'background_image' => $background_image,
     'games_count' => $games_count,
-    'games_list' => $games_list
+    'games_list' => $games_list,
+    'next_page' => getNextPageString($response['next'])
   ];
 }

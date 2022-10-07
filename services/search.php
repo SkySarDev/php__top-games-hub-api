@@ -6,6 +6,7 @@ function getSearch(string $text): array {
 
   return [
     'games_count' => $response['count'],
-    'games_list' => getExtractedGamesList($response['results'])
+    'games_list' => getExtractedGamesList($response['results']),
+    'next_page' => getNextPageString($response['next'])
   ];
 }

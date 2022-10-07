@@ -25,7 +25,8 @@ function getDevelopers(): array {
     'title' => 'Game developers',
     'description' => 'Top Games Hub. List of video game developers.',
     'background_image' => getBackgroundImage('developers.jpg'),
-    'list' => $developers_list
+    'list' => $developers_list,
+    'next_page' => getNextPageString($response['next'])
   ];
 }
 
@@ -51,5 +52,6 @@ function getDeveloperById(string $id): array {
     'background_image' => $image_background,
     'games_count' => $games_count,
     'games_list' => $games_list,
+    'next_page' => getNextPageString($data['games_list']['next'])
   ];
 }
