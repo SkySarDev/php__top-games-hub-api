@@ -7,7 +7,7 @@ function getHome(): array {
   $start_year = date('Y-m-d', mktime(0, 0, 0, 1, 1, date('Y')));
   $end_year = date('Y-m-d', mktime(0, 0, 0, 12, 31, date('Y')));
 
-  $new_releases_query = 'dates='.$today.','.$next_month.'&ordering=released&'.$page_size;
+  $new_releases_query = 'dates='.$today.','.$next_month.'&ordering=-rating&'.$page_size;
   $popular_genres_query = 'ordering=-games_count&'.$page_size;
   $top_games_query = 'dates='.$start_year.','.$end_year.'&ordering=-metacritic&'.$page_size;
 
@@ -27,9 +27,9 @@ function getHome(): array {
   return [
     'title' => 'Home page',
     'description' => 'Top Games Hub is a video game database with over 700,000 games!',
-    'top_games' => getExtractedGamesList($data['top_games']['results']),
-    'new_releases' => getExtractedGamesList($data['new_releases']['results']),
-    'popular_genres' => getExtractedCommonsList($data['popular_genres']['results']),
+    'topGames' => getExtractedGamesList($data['top_games']['results']),
+    'newReleases' => getExtractedGamesList($data['new_releases']['results']),
+    'popularGenres' => getExtractedCommonsList($data['popular_genres']['results']),
     'tags' => getExtractedCommonsList($data['tags']['results'])
   ];
 }
