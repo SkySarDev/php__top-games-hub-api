@@ -4,6 +4,10 @@ function getAllGames(): array {
   $url = getUrl('games', BASE_PAGE_SIZE);
   $response = fetchData($url);
 
+  if (isset($response['error'])) {
+    return $response;
+  }
+
   return [
     'title' => 'Games',
     'description' => 'Top Games Hub. List of video games.',
