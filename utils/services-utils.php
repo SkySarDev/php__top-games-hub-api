@@ -66,8 +66,5 @@ function getNextPageString(?string $next_page): ?string {
     return null;
   }
 
-  $api_url = getenv('API_URL');
-  $api_key = 'key='.getenv('API_KEY');
-
-  return str_replace([$api_url, $api_key], '', $next_page);
+  return str_replace([API_URL, API_KEY], '', $next_page);
 }
