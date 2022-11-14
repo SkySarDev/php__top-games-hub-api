@@ -1,6 +1,14 @@
 <?php
 
+use AppCache\Cache;
+
 function getTags(): array {
+  $cache = new Cache('cache/tags.json', 3600 * 24);
+
+  if ($cache->checkCache()) {
+    return $cache->getCache();
+  }
+
   $url = getUrl('tags', BASE_PAGE_SIZE);
   $response = fetchData($url);
 
@@ -23,13 +31,17 @@ function getTags(): array {
     );
   }
 
-  return [
+  $result = [
     'title' => 'Game tags',
     'description' => 'Top Games Hub. List of video game tags.',
     'background_image' => getBackgroundImage('tags.jpg'),
     'list' => $tags_list,
     'next_page' => getNextPageString($response['next'])
   ];
+
+  $cache->setCache($result);
+
+  return $result;
 }
 
 function getTagById(string $id): array {

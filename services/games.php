@@ -1,6 +1,14 @@
 <?php
 
+use AppCache\Cache;
+
 function getAllGames(): array {
+  $cache = new Cache('cache/games.json', 3600 * 24);
+
+  if ($cache->checkCache()) {
+    return $cache->getCache();
+  }
+
   $url = getUrl('games', BASE_PAGE_SIZE);
   $response = fetchData($url);
 
@@ -8,7 +16,7 @@ function getAllGames(): array {
     return $response;
   }
 
-  return [
+  $result = [
     'title' => 'Games',
     'description' => 'Top Games Hub. List of video games.',
     'background_image' => getBackgroundImage('games.jpg'),
@@ -16,6 +24,10 @@ function getAllGames(): array {
     'games_list' => getExtractedGamesList($response['results']),
     'next_page' => getNextPageString($response['next'])
   ];
+
+  $cache->setCache($result);
+
+  return $result;
 }
 
 function getGameById(string $id): array {

@@ -1,13 +1,21 @@
 <?php
 
+use AppCache\Cache;
+
 function getReleases(): array {
+  $cache = new Cache('cache/release-calendar.json', 3600 * 24);
+
+  if ($cache->checkCache()) {
+    return $cache->getCache();
+  }
+
   $start = date('Y-m-d');
   $end = date('Y-m-d', strtotime('+1 month'));
   $query = BASE_PAGE_SIZE.'&dates='.$start.','.$end.'&ordering=released';
   $url = getUrl('games', $query);
   $response = fetchData($url);
 
-  return [
+  $result = [
     'title' => 'Release calendar: Upcoming releases',
     'description' => 'Top Games Hub. List of upcoming games releases',
     'background_image' => getBackgroundImage('calendar.jpg'),
@@ -15,6 +23,10 @@ function getReleases(): array {
     'games_list' => getExtractedGamesList($response['results']),
     'next_page' => getNextPageString($response['next'])
   ];
+
+  $cache->setCache($result);
+
+  return $result;
 }
 
 function getReleasesByDate(string $date): array {

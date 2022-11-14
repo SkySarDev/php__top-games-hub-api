@@ -1,6 +1,14 @@
 <?php
 
+use AppCache\Cache;
+
 function getHome(): array {
+  $cache = new Cache('cache/home.json', 3600 * 24);
+
+  if ($cache->checkCache()) {
+    return $cache->getCache();
+  }
+
   $page_size = 'page=1&page_size=6';
   $today = date('Y-m-d');
   $next_month = date('Y-m-d', strtotime('+1 month'));
@@ -24,7 +32,7 @@ function getHome(): array {
     return $data;
   }
 
-  return [
+  $result = [
     'title' => 'Home page',
     'description' => 'Top Games Hub is a video game database with over 700,000 games!',
     'topGames' => getExtractedGamesList($data['top_games']['results']),
@@ -32,4 +40,8 @@ function getHome(): array {
     'popularGenres' => getExtractedCommonsList($data['popular_genres']['results']),
     'tags' => getExtractedCommonsList($data['tags']['results'])
   ];
+
+  $cache->setCache($result);
+
+  return $result;
 }

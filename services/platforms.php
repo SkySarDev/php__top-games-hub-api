@@ -1,6 +1,14 @@
 <?php
 
+use AppCache\Cache;
+
 function getPlatforms(): array {
+  $cache = new Cache('cache/platforms.json', 3600 * 24);
+
+  if ($cache->checkCache()) {
+    return $cache->getCache();
+  }
+
   $url = getUrl('platforms/lists/parents');
   $response = fetchData($url);
 
@@ -34,13 +42,17 @@ function getPlatforms(): array {
     return $a['games_count'] < $b['games_count'];
   });
 
-  return [
+  $result = [
     'title' => 'Game platforms',
     'description' => 'Top Games Hub. List of video game platforms.',
     'background_image' => getBackgroundImage('platforms.jpg'),
     'list' => $platforms_list,
     'next_page' => getNextPageString($response['next'])
   ];
+
+  $cache->setCache($result);
+
+  return $result;
 }
 
 function getPlatformById(string $id): array {

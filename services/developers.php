@@ -1,6 +1,14 @@
 <?php
 
+use AppCache\Cache;
+
 function getDevelopers(): array {
+  $cache = new Cache('cache/developers.json', 3600 * 24);
+
+  if ($cache->checkCache()) {
+    return $cache->getCache();
+  }
+
   $url = getUrl('developers', BASE_PAGE_SIZE);
   $response = fetchData($url);
 
@@ -21,13 +29,17 @@ function getDevelopers(): array {
     );
   }
 
-  return [
+  $result = [
     'title' => 'Game developers',
     'description' => 'Top Games Hub. List of video game developers.',
     'background_image' => getBackgroundImage('developers.jpg'),
     'list' => $developers_list,
     'next_page' => getNextPageString($response['next'])
   ];
+
+  $cache->setCache($result);
+
+  return $result;
 }
 
 function getDeveloperById(string $id): array {

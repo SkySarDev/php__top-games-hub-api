@@ -1,6 +1,14 @@
 <?php
 
+use AppCache\Cache;
+
 function getPublishers(): array {
+  $cache = new Cache('cache/publishers.json', 3600 * 24);
+
+  if ($cache->checkCache()) {
+    return $cache->getCache();
+  }
+
   $url = getUrl('publishers', BASE_PAGE_SIZE);
   $response = fetchData($url);
 
@@ -21,13 +29,17 @@ function getPublishers(): array {
     );
   }
 
-  return [
+  $result = [
     'title' => 'Game publishers',
     'description' => 'Top Games Hub. List of video game publishers.',
     'background_image' => getBackgroundImage('developers.jpg'),
     'list' => $publishers_list,
     'next_page' => getNextPageString($response['next'])
   ];
+
+  $cache->setCache($result);
+
+  return $result;
 }
 
 function getPublisherById(string $id): array {

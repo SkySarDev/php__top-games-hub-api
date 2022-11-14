@@ -3,5 +3,6 @@
 
 vendor
 
+cache
 debug.php
 temp-db

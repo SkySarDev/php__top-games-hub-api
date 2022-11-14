@@ -1,6 +1,14 @@
 <?php
 
+use AppCache\Cache;
+
 function getGenres(): array {
+  $cache = new Cache('cache/genres.json', 3600 * 24);
+
+  if ($cache->checkCache()) {
+    return $cache->getCache();
+  }
+
   $url = getUrl('genres', 'ordering=-games_count');
   $response = fetchData($url);
 
@@ -8,13 +16,17 @@ function getGenres(): array {
     return $response;
   }
 
-  return [
+  $result = [
     'title' => 'Game genres',
     'description' => 'Top Games Hub. List of video game genres.',
     'background_image' => getBackgroundImage('genres.jpg'),
     'list' => $response['results'],
     'next_page' => getNextPageString($response['next'])
   ];
+
+  $cache->setCache($result);
+
+  return $result;
 }
 
 function getGenreById(string $id): array {
