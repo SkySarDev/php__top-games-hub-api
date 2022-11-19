@@ -15,7 +15,7 @@ function getHome(): array {
   $start_year = date('Y-m-d', mktime(0, 0, 0, 1, 1, date('Y')));
   $end_year = date('Y-m-d', mktime(0, 0, 0, 12, 31, date('Y')));
 
-  $new_releases_query = 'dates='.$today.','.$next_month.'&ordering=released&'.$page_size;
+  $new_releases_query = 'dates='.$today.','.$next_month.'&parent_platforms=1,2,3&ordering=released&'.$page_size;
   $popular_genres_query = 'ordering=-games_count&'.$page_size;
   $top_games_query = 'dates='.$start_year.','.$end_year.'&ordering=-metacritic&'.$page_size;
 
