@@ -9,6 +9,10 @@ function getNextPage(string $query): array {
   $url = getUrl($url_arr[0], $url_arr[1]);
   $response = fetchData($url);
 
+  if (isset($response['error'])) {
+    return $response;
+  }
+
   $list = $url_arr[0] === 'games'
           ? getExtractedGamesList($response['results'])
           : getExtractedCommonsList($response['results']);
